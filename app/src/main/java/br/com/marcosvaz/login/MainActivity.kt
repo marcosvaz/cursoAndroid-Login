@@ -13,16 +13,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btn_verificar.setOnClickListener {
-            if(edt_nome.text.toString() == "marcos" && edt_senha.text.toString() == "12345"){
+
+            if(edt_nome.text.isEmpty()){
+                edt_nome.error = "Campo não pode ser vazio!"
+                edt_nome.requestFocus()
+            } else if(edt_senha.text.isEmpty()){
+                edt_senha.error = "Campo não pode ser vazio!"
+                edt_senha.requestFocus()
+            } else {
                 val intent = Intent(this, HomeActivity::class.java);
                 val nome = edt_nome.editableText.toString();
                 intent.putExtra("nome", nome);
                 startActivity(intent);
-            } else {
-                Toast.makeText(
-                    this, "Usuário e senha inválidos", Toast.LENGTH_LONG
-                ).show();
             }
+
         }
     }
 }

@@ -16,7 +16,7 @@ class HomeActivity : AppCompatActivity() {
         txv_hello.text = "Olá $nome!";
 
         btn_logout.setOnClickListener {
-            finish();
+            onBackPressed();
         }
     }
 }
